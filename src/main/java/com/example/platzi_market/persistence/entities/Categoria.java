@@ -16,7 +16,7 @@ public class Categoria {
 
     //relación con la tabal productos
     @OneToMany(mappedBy = "categoria")
-    private List<Producto> producto;
+    private List<Producto> productos;
 
     public Integer getIdCategoria() {
         return idCategoria;
