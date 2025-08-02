@@ -6,13 +6,13 @@ import com.example.platzi_market.persistence.entities.Producto;
 import com.example.platzi_market.persistence.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import com.example.platzi_market.domain.repository.ProductRepositoryDomain;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class ProductRepository implements com.example.platzi_market.domain.repository.ProductRepositoryDomain {
+public class ProductRepository implements ProductRepositoryDomain {
     @Autowired
     private ProductoCrudRepositiry productoCrudRepositiry;
 

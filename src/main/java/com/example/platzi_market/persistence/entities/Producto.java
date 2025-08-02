@@ -22,6 +22,8 @@ public class Producto {
     private Boolean estado;
 
 
+
+
     //relación con tabla categoria
     @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
@@ -82,4 +84,7 @@ public class Producto {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+    public Categoria getCategoria() {return categoria;}
+
+    public void setCategoria(Categoria categoria) {this.categoria = categoria;}
 }
