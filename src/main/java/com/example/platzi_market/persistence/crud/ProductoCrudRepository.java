@@ -2,11 +2,13 @@ package com.example.platzi_market.persistence.crud;
 
 import com.example.platzi_market.persistence.entities.Producto;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductoCrudRepositiry extends CrudRepository<Producto,Integer> {
+@Repository
+public interface ProductoCrudRepository extends CrudRepository<Producto,Integer> {
     //recuperar la lista a una categoria en especifico
     /*solamente con un Query
     @Query(value = "SELECT * FROM productos WHERE id_categria = ?",nativeQuery = true)
@@ -14,6 +16,6 @@ public interface ProductoCrudRepositiry extends CrudRepository<Producto,Integer>
     */
     //implementando Query Methods
     List<Producto> findByIdCategoriaOrderByNombre(int idCategoria);
-    Optional<List<Producto>> findByCantidadStockLessTanAndEstado(int cantidadStock, boolean estado);
+    Optional<List<Producto>> findByCantidadStockLessThanAndEstado(int cantidadStock, boolean estado);
 
 }
