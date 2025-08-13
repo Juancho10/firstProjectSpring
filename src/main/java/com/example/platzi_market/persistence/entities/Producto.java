@@ -21,6 +21,16 @@ public class Producto {
     private Integer cantidadStock;
     private Boolean estado;
 
+    // Añade constructor sin argumentos
+    public Producto() {}
+
+    // Añade constructor con parámetros esenciales
+    public Producto(String nombre, Integer idCategoria, Double precioVenta) {
+        this.nombre = nombre;
+        this.idCategoria = idCategoria;
+        this.precioVenta = precioVenta;
+        this.estado = true; // Valor por defecto
+    }
 
 
 

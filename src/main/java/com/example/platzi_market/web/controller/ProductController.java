@@ -14,12 +14,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/")  // O @GetMapping sin parámetro
+    @GetMapping  // ← ¡Faltaba esta anotación!
     public List<Product> getAll() {
         return productService.getAll();
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/{productId}")  // ← Anotación para GET por ID
     public Optional<Product> getProduct(@PathVariable int productId) {
         return productService.getProduct(productId);
     }
@@ -29,12 +29,12 @@ public class ProductController {
         return productService.getByCategory(categoryId);
     }
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public Product save(@RequestBody Product product) {
         return productService.save(product);
     }
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("/delete/{productId}")
     public boolean delete(@PathVariable int productId) {
         return productService.delete(productId);
     }
