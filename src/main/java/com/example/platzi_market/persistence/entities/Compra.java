@@ -26,8 +26,10 @@ public class Compra {
     @JoinColumn(name = "id_cliente", updatable = false, insertable = false)
     private Cliente  clientes;
 
-    //relación que tiene con compraProductos
-    @OneToMany(mappedBy = "compras")
+    /*
+    * relación que tiene con compraProductos
+    * cascade => indica que se van a guardar en cascada*/
+    @OneToMany(mappedBy = "compras", cascade = {CascadeType.ALL})
     private List<CompraProducto> productos;
 
     public Integer getIdCompra() {
@@ -76,5 +78,21 @@ public class Compra {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Cliente getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(Cliente clientes) {
+        this.clientes = clientes;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }
